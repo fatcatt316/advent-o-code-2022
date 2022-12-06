@@ -9,8 +9,9 @@ class MarkerLooker:
     marker_looker = MarkerLooker(filepath, part)
 
     for idx, c in enumerate(marker_looker.datastream):
-      if marker_looker.is_marker(marker_looker.datastream[(1+idx-marker_looker.min_distinct_length):idx+1]):
-        return idx + 1
+      position = idx + 1
+      if marker_looker.is_marker(marker_looker.datastream[(position-marker_looker.min_distinct_length):position]):
+        return position
 
   # It's a marker if the last 4 characters were all different
   def is_marker(self, last_four_characters):
