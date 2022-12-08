@@ -40,6 +40,7 @@ module Sizer
   def self.populate_dirs(filepath = 'test_input.txt')
     ::File.readlines(filepath).each do |line|
       puts line
+      next if line.empty?
       formatted_line = line.split
       case formatted_line[0]
       when "$" # command
